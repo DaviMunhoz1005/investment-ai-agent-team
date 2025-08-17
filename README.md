@@ -6,8 +6,8 @@
 
 ## 🔹 Sobre o Projeto
 
-O Investment AI Agent Team é um sistema de agentes inteligentes focado no mercado de ações dos Estados Unidos, executado diretamente no terminal.
-O projeto combina análise quantitativa e análise qualitativa para fornecer informações consolidadas sobre ações em formato de chat interativo, ajudando usuários a entender o que os dados e as notícias recentes indicam sobre comprar ou esperar para cada ativo especificado pelo usuário.
+O Investment AI Agent Team é um sistema de agentes inteligentes focado no mercado de ações dos Estados Unidos.
+Ele combina análise quantitativa e análise qualitativa para fornecer informações consolidadas sobre ações em formato de chat interativo ou via API FastAPI, ajudando usuários a entender se é hora de comprar ou esperar em relação a cada ativo solicitado.
 
 ---
 
@@ -19,9 +19,9 @@ O projeto combina análise quantitativa e análise qualitativa para fornecer inf
 
 - Extrair informações qualitativas de notícias recentes e relatórios.
 
-- Consolidar resultados em uma tabela ASCII com nome da ação, preço, recomendação e motivo principal, podendo fornecer links externos para facilitar o entendimento do usuário.
+- Consolidar resultados em uma tabela ASCII com nome da ação, preço, recomendação e motivo principal, podendo incluir links externos.
 
-- Permitir interação contínua via chat no terminal.
+- Permitir interação contínua via chat no terminal ou requisições HTTP.
 
 ---
 
@@ -32,6 +32,7 @@ O projeto combina análise quantitativa e análise qualitativa para fornecer inf
 - **YFinanceTools** para dados financeiros
 - **FinancialDatasetsTools** para dados históricos e análises de mercado
 - **GoogleSearchTools** e **WebBrowserTools** para pesquisas de notícias
+- **FastAPI** para expor endpoints HTTP
 - **dotenv** para variáveis de ambiente
 
 ---
@@ -42,6 +43,9 @@ Veja abaixo algumas imagens do **Investment AI Agent Team** rodando diretamente 
 
 ![Etapa de Raciocinar](docs-imgs/Reasoning-step.jpg)
 ![Etapa de Responder](docs-imgs/Response-step.jpg)
+
+### Com **FastAPI**
+![Requisição com FastAPI](docs-imgs/Request_FastAPI.jpg)
 
 ---
 
@@ -99,7 +103,8 @@ FINANCIAL_DATASETS_API_KEY=your_financial_datasets_api_key_here
 ---
 
 ## 🚀 Como Rodar
-Execute no terminal:
+### 🔹 Modo Terminal (Chat Interativo)
+Execute:
 ```bash
 
 python main.py
@@ -107,6 +112,36 @@ python main.py
 
 O sistema iniciará um chat interativo no terminal, onde você pode digitar perguntas sobre ações e receber análises dos agentes.
 Se quiser encerrar o chat digite `quit`, `exit` ou `bye`.
+
+### 🔹 Modo API com FastAPI
+Suba o servidor:
+```bash
+
+python -m uvicorn main-fastapi:router --reload
+```
+Por padrão ele rodará em http://127.0.0.1:8000.
+
+#### Endpoint principal:
+
+- POST /run
+- Corpo da requisição (JSON):
+
+```json
+{
+  "message": "Analyze AAPL and MSFT stocks"
+}
+```
+
+#### Exemplo usando cURL:
+
+```bash
+
+curl -X POST "http://127.0.0.1:8000/run" \
+  -H "Content-Type: application/json" \
+  -d '{"message":"Analyze TSLA and NVDA"}'
+```
+
+A resposta conterá a análise consolidada das ações solicitadas.
 
 ---
 
@@ -121,6 +156,7 @@ investment-ai-agent-team/
 │  └─ news_agent.py
 │
 ├─ main.py
+├─ main-fastapi.py
 ├─ .env
 ├─ requirements.txt
 ├─ README.md
