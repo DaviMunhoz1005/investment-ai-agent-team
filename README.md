@@ -7,7 +7,7 @@
 ## 🔹 Sobre o Projeto
 
 O Investment AI Agent Team é um sistema de agentes inteligentes focado no mercado de ações dos Estados Unidos, executado diretamente no terminal.
-O projeto combina análise quantitativa e análise qualitativa para fornecer informações consolidadas sobre ações em formato de chat interativo, ajudando usuários a entender o que os dados e as notícias recentes indicam sobre comprar ou esperar para cada ativo.
+O projeto combina análise quantitativa e análise qualitativa para fornecer informações consolidadas sobre ações em formato de chat interativo, ajudando usuários a entender o que os dados e as notícias recentes indicam sobre comprar ou esperar para cada ativo especificado pelo usuário.
 
 ---
 
@@ -46,11 +46,21 @@ Veja abaixo algumas imagens do **Investment AI Agent Team** rodando diretamente 
 ---
 
 ## 📚 Exemplos de uso (inputs)
-- "Compare the performance of US tech companies and bring me the latest news about the sector."
+- "Analyze AAPL and MSFT stocks and tell me if now is a good time to buy or wait."
 
-- "Give me insights on the US stock market and summarize recent research on artificial intelligence applied to finance."
+- "Check TSLA and NVDA. Should I invest based on the latest news and analyst recommendations?"
 
-- "Show me the best-performing US stocks this year and recent headlines about them."
+- "Compare GOOGL and AMZN in terms of performance and market sentiment."
+
+- "Give me an update on JPM and BAC. Are banks looking good for investment right now?"
+
+- "Analyze META and NFLX, considering recent news and stock price trends."
+
+- "What do analysts say about AMD and INTC? Should I hold or buy?"
+
+- "Check BRK-B and V for growth potential and risks."
+
+- "Compare DIS and WMT. Which has better momentum?"
 
 ---
 
