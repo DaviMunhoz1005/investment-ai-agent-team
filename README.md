@@ -11,7 +11,7 @@ Ele combina análise quantitativa e análise qualitativa para fornecer informaç
 
 ---
 
-⚠️ Restrições e Limitações
+## ⚠️ Restrições e Limitações
 
 O Investment AI Agent Team depende de chaves de API para acessar dados financeiros e realizar pesquisas. Algumas limitações importantes devem ser consideradas:
 
