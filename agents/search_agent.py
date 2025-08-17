@@ -8,9 +8,13 @@ import os
 
 load_dotenv()
 
-def create_search_agent():
+def create_news_agent():
+    """
+    Agent that receives a list of US stock tickers and searches recent news:
+    summarizes if articles suggest Buy, Wait, or Hold.
+    """
     return Agent(
-        name="Search Agent",
+        name="News/Research Agent",
         model=Gemini(id="gemini-2.0-flash", api_key=os.getenv("GOOGLE_API_KEY")),
         tools=[
             ReasoningTools(add_instructions=True),
@@ -18,16 +22,15 @@ def create_search_agent():
             WebBrowserTools(),
         ],
         description=(
-            "Specialized agent that gathers the latest news and qualitative information about US stocks."
-            "It summarizes what recent articles and reports say about whether to Buy or Wait for each stock, "
-            "without making its own recommendations."
+            "Specialized agent that gathers and summarizes recent news for US stocks. "
+            "Reports what sources indicate about Buy, Wait, or Hold for each stock."
         ),
         instructions=[
-            "Receive a list of US stocks from the Financial Agent.",
-            "Search for the latest news, articles, and reports about these stocks.",
-            "For each stock, summarize what recent articles suggest: Buy, Wait, or Hold.",
-            "Do not give independent opinions; only report what the sources indicate.",
-            "Provide concise bullet points or paragraphs with the source of each insight."
+            "Receive a list of US stock tickers from the user.",
+            "Search recent news, articles, and reports for each stock.",
+            "Summarize what the sources indicate (Buy, Wait, Hold) and provide the key reason.",
+            "Do not give personal recommendations; focus on what news sources say.",
+            "Provide concise bullet points or short paragraphs per stock."
         ],
         show_tool_calls=True,
         markdown=True,

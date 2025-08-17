@@ -9,6 +9,10 @@ import os
 load_dotenv()
 
 def create_financial_agent():
+    """
+    Agent that receives a list of US stock tickers and returns quantitative data:
+    current price, historical trends, and analyst recommendations.
+    """
     return Agent(
         name="Financial Agent",
         model=Gemini(id="gemini-2.0-flash", api_key=os.getenv("GOOGLE_API_KEY")),
@@ -18,16 +22,14 @@ def create_financial_agent():
             FinancialDatasetsTools(enable_search=True, enable_news=True, enable_market_data=True, api_key=os.getenv("FINANCIAL_DATASETS_API_KEY")),
         ],
         description=(
-            "Specialized agent focused on identifying the stocks US stocks."
-            "It analyzes current stock prices, historical trends, analyst recommendations, and market data "
-            "to determine which stocks are most promising for investment based on quantitative metrics."
+            "Specialized agent that provides quantitative financial data for US stocks: "
+            "current price, historical trends, and analyst recommendations."
         ),
         instructions=[
-            "Retrieve and analyze US stock data using YFinance and FinancialDatasets tools.",
-            "Rank stocks based on performance, growth potential, and analyst recommendations.",
-            "Provide a clear recommendation for each stock: Buy, Hold, or Wait.",
-            "Include quantitative reasoning and key metrics that support each recommendation.",
-            "Include general news or market sentiment"
+            "Receive a list of US stock tickers from the user.",
+            "Retrieve stock prices, historical trends, and analyst recommendations.",
+            "Return a clear summary per stock including quantitative metrics.",
+            "Do not include qualitative news or market sentiment."
         ],
         show_tool_calls=True,
         markdown=True,
