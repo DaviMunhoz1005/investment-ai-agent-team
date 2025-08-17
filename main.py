@@ -40,10 +40,8 @@ financialTeam = Team(
     success_criteria="The team shows a complete table with stock name, price, Buy/Wait recommendation, and key reason from news sources.",
 )
 
-financialTeam.print_response(
-    "Check the stock AAPL and summarize: "
-    "- Current price "
-    "- What recent articles and reports suggest: Buy, Wait, or Hold "
-    "- Key reason from the news",
-    stream=True
-)
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ['exit', 'quit', 'bye']:
+        break
+    financialTeam.print_response(user_input, stream=True)
