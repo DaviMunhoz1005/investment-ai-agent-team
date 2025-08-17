@@ -2,7 +2,7 @@ from agno.models.google import Gemini
 from agno.team import Team
 
 from agents.financial_agent import create_financial_agent
-from agents.search_agent import create_news_agent
+from agents.news_agent import create_news_agent
 
 from dotenv import load_dotenv
 import os
