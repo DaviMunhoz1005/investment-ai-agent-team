@@ -51,4 +51,7 @@ financialTeam = Team(
 @router.post("/run")
 async def run(body: Body):
     response = financialAgent.run(body.message)
-    return {f"response: {response.content}"}
+    content = response.content.strip()
+    return {
+        "message": content
+    }
