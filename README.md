@@ -11,6 +11,22 @@ Ele combina análise quantitativa e análise qualitativa para fornecer informaç
 
 ---
 
+⚠️ Restrições e Limitações
+
+O Investment AI Agent Team depende de chaves de API para acessar dados financeiros e realizar pesquisas. Algumas limitações importantes devem ser consideradas:
+
+Chave gratuita: Se você estiver usando uma chave gratuita (Google API ou Financial Datasets API), pode enfrentar restrições no número de requisições permitidas.
+
+Volume de dados: Pesquisar uma grande quantidade de ações ou obter históricos extensos pode não funcionar corretamente com limites gratuitos.
+
+Uso de tokens: Consultas que envolvem muitos dados ou análise detalhada podem consumir rapidamente os tokens disponíveis, impactando a quantidade de informações retornadas.
+
+Recomendações: Para análises mais intensivas ou em larga escala, considere utilizar uma chave paga ou limitar a quantidade de ações consultadas por vez.
+
+💡 Dica: Para testes e aprendizado, é recomendado começar com perguntas mais simples e diretas, dando informações chave para o modelo.
+
+---
+
 ## 🎯 Objetivo
 
 - Criar agentes especializados que trabalham em conjunto para analisar o mercado americano.
