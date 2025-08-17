@@ -1,5 +1,6 @@
 from agno.models.google import Gemini
 from agno.team import Team
+from agno.playground import Playground
 
 from agents.financial_agent import create_financial_agent
 from agents.search_agent import create_search_agent
@@ -25,3 +26,9 @@ financialTeam = Team(
     success_criteria="The team shows a complete table with stock name, price, whether it is recommended to buy or hold "
                      "and the key reason for buying or holding",
 )
+
+playground = Playground(agents=[financialAgent, searchAgent], teams=[financialTeam])
+app = playground.get_app()
+
+if __name__ == "__main__":
+    playground.serve(app="main:app", reload=True)
